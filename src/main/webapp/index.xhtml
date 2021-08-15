@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+https://byspel.com/login-jsf-primefaces-jpa-mysql/
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sistema de Venta Web</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+    </h:head>
+    <h:body>
+        <h:form class="w-100 d-flex justify-content-center mt-5 pt-5"> 
+            <p:growl id="growl" showDetail="true" />
+            <p:panelGrid columns="2" class="w-25">
+                <f:facet name="header">SISTEMA DE VENTA WEB</f:facet>
+                <h:panelGrid class="w-100" id="hpgLogin">
+                    <h:outputText value="Email"/>
+                    <p:inputText value="#{loginBean.email}" required="true" class="w-100"/>
+                    <h:outputText value="Password"/>
+                    <p:password value="#{loginBean.password}" required="true" class="w-100"/>
+                </h:panelGrid>
+                <f:facet name="footer">
+                    <p:commandButton value="Login" class="bg-success mx-auto d-block w-100 text-dark border text-white"
+                                     update="growl, hpgLogin" action="#{loginBean.autenticar()}"/>
+                    <p:commandButton value="New User" class="bg-black mx-auto d-block w-100 text-dark border mt-2 text-white"
+                                     />
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"/>
+</html>
